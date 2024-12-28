@@ -1,4 +1,4 @@
-import * as fns from "./functions.js";
+import * as utilities from "./functions.js";
 import { groupTest } from "./testFrameWork.js";
 import { people } from "./data.js";
 
@@ -6,7 +6,7 @@ const [ananya, kavya, ramesh, rahul] = people;
 
 const countEmployedIndividualsTest = {
   question: "1. How many individuals are currently employed?",
-  answer: fns.countEmployedIndividuals,
+  answer: utilities.countEmployedIndividuals,
   testCases: [
     {
       data: [
@@ -44,7 +44,7 @@ const countEmployedIndividualsTest = {
 
 const countCarOwnersTest = {
   question: "2. How many people own a car?",
-  answer: fns.countCarOwners,
+  answer: utilities.countCarOwners,
   testCases: [
     {
       data: [{ vehicles: [{ type: "car" }] }, { vehicles: [{ type: "bike" }] }],
