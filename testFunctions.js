@@ -10,28 +10,28 @@ const countEmployedIndividualsTest = {
   testCases: [
     {
       data: [
-        { isEmployed: true },
-        { isEmployed: true },
-        { isEmployed: true },
-        { isEmployed: true },
+        { ...ananya, isEmployed: true },
+        { ...kavya, isEmployed: true },
+        { ...ramesh, isEmployed: true },
+        { ...rahul, isEmployed: true },
       ],
       expected: 4,
     },
     {
       data: [
-        { isEmployed: false },
-        { isEmployed: true },
-        { isEmployed: false },
-        { isEmployed: true },
+        { ...ananya, isEmployed: false },
+        { ...kavya, isEmployed: true },
+        { ...ramesh, isEmployed: false },
+        { ...rahul, isEmployed: true },
       ],
       expected: 2,
     },
     {
       data: [
-        { isEmployed: false },
-        { isEmployed: false },
-        { isEmployed: false },
-        { isEmployed: false },
+        { ...ananya, isEmployed: false },
+        { ...kavya, isEmployed: false },
+        { ...ramesh, isEmployed: false },
+        { ...rahul, isEmployed: false },
       ],
       expected: 0,
     },
@@ -72,7 +72,51 @@ const countCarOwnersTest = {
   ],
 };
 
-const testSuite = [countEmployedIndividualsTest, countCarOwnersTest];
+const countVaccinatedPetsTest = {
+  question: "3. How many pets are fully vaccinated?",
+  answer: utilities.countVaccinatedPets,
+  testCases: [
+    {
+      data: [
+        { pets: [{ isFullyVaccinated: true }] },
+        { pets: [{ isFullyVaccinated: true }] },
+      ],
+      expected: 2,
+    },
+    {
+      data: [
+        { pets: [{ isFullyVaccinated: true }] },
+        { pets: [{ isFullyVaccinated: false }] },
+      ],
+      expected: 1,
+    },
+    {
+      data: [
+        { pets: [{ isFullyVaccinated: false }] },
+        { pets: [{ isFullyVaccinated: false }] },
+      ],
+      expected: 0,
+    },
+    {
+      data: [{ pets: [] }, { pets: [] }],
+      expected: 0,
+    },
+    {
+      data: [{ pets: [{ isFullyVaccinated: null }] }],
+      expected: 0,
+    },
+    {
+      data: [],
+      expected: 0,
+    },
+  ],
+};
+
+const testSuite = [
+  countEmployedIndividualsTest,
+  countCarOwnersTest,
+  countVaccinatedPetsTest,
+];
 
 const runTestCasesFor = (test) =>
   test.testCases.map(({ data, expected }) => [test.answer(data), expected]);

@@ -1,6 +1,6 @@
-export const isObject = (element) => typeof element === "object";
+const isObject = (element) => typeof element === "object";
 
-export function areEqual(entity1, entity2) {
+function areEqual(entity1, entity2) {
   if (entity1 === entity2) {
     return true;
   }
@@ -21,7 +21,7 @@ export function areEqual(entity1, entity2) {
 
 const test = ([actual, expected]) => {
   const status = areEqual(actual, expected) ? "✅" : "❌";
-  console.log(status, "actual:", actual, "expected:", expected);
+  console.log(status, "actual:", actual, "\nexpected:", expected);
 };
 
 export const groupTest = (description, testCases) => {
